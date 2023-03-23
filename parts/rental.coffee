@@ -87,24 +87,6 @@ if Meteor.isClient
                 'red'
             else
                 'outline'
-    Template.favorite_icon_toggle.events
-        'click .toggle_fav': ->
-            if @favorite_ids and Meteor.userId() in @favorite_ids
-                Docs.update @_id, 
-                    $pull:favorite_ids:Meteor.userId()
-            else
-                $('body').toast(
-                    showIcon: 'heart'
-                    message: "marked favorite"
-                    showProgress: 'bottom'
-                    class: 'success'
-                    # displayTime: 'auto',
-                    position: "bottom right"
-                )
-
-                Docs.update @_id, 
-                    $addToSet:favorite_ids:Meteor.userId()
-    
     
     Template.rental_edit.events
         'click .delete_rental': ->

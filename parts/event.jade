@@ -11,9 +11,8 @@ template(name='events')
                     +i name='calendar'
                     |events
                 if currentUser
-                    .ui.circular.icon.button.add_event(title='add event')
-                        // i.plus.big.icon
-                        +i name='plus'
+                    i.plus.large.green.circular.link.icon.zoomer.add_event(title='add event')
+                        // +i name='plus'
                 .ui.compact.button.toggle_past
                     if viewing_past
                         i.undo.green.large.icon

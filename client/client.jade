@@ -48,9 +48,9 @@ template(name='nav')
         a.header.item.zoomer(href='/' class="{{isActivePath '/'}}" )
             +icolor name='fenix'
             // img(src='/android-chrome-192x192.png')
-            span.mobile.hidden phoenix culture
+            strong.mobile.hidden Phoenix Culture
         a.icon.item.invert_toggle(title='dark mode')
-            +i name='moon'
+            +i name='light'
         // // .icon.item 
         // //     i.large.search.icon
         .search.item.zoomer.mobile.hidden(title='search')
@@ -123,7 +123,7 @@ template(name='nav')
         a.icon.item.fly_right(href="/profiles" class="{{isActiveRoute 'profiles'}}" title='profiles')
             // i.large.calendar.icon
             small #{profile_counter}
-            +i name='theatre-mask'
+            +i name='groups'
             span.mobile.hidden profiles
         if currentUser.admin_mode
             a.icon.item.fly_right(href="/users" class="{{isActiveRoute 'users'}}" title='users')
@@ -192,15 +192,16 @@ template(name='mlayout')
 
 
 template(name='home')
-    .ui.center.aligned.four.column.padded.grid 
-        each home_docs
-            .column 
-                a.ui.card(href="/#{route}")
-                    img.ui.image.zoomer(src="{{c.url image_id width=300 height=300 crop='fit'}}")    
-                    .content
-                        .header #{title}
-                        .description 
-                            |!{body}
+    .ui.centered.four.column.padded.stackable.grid 
+        .center.aligned.row
+            each home_docs
+                .column 
+                    a.ui.fluid.card(href="/#{route}")
+                        img.ui.image.zoomer(src="{{c.url image_id width=300 height=300 crop='fit'}}")    
+                        .content
+                            .header #{title}
+                            .description 
+                                |!{body}
 template(name='not_found')
     .ui.center.aligned.padded.basic.segment
         +ibig name='park-bench' 
