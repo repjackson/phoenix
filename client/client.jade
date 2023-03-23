@@ -46,9 +46,9 @@ template(name='nav')
         //         i.big.loading.grey.refresh.icon.cancel
         // else 
         a.header.item.zoomer(href='/' class="{{isActivePath '/'}}" )
-            +icolor name='yin-yang'
+            +icolor name='fenix'
             // img(src='/android-chrome-192x192.png')
-            span.mobile.hidden dao
+            span.mobile.hidden phoenix culture
         a.icon.item.invert_toggle(title='dark mode')
             +i name='moon'
         // // .icon.item 
@@ -136,11 +136,6 @@ template(name='nav')
             small #{group_counter}
             +i name='campfire'
             span.mobile.hidden groups
-        a.icon.item.fly_right(href="/music" class="{{isActiveRoute 'music'}}" title='music')
-            // i.large.fire.icon
-            small #{music_counter}
-            +i name='music'
-            span.mobile.hidden music
         a.icon.item.fly_right(href="/posts" class="{{isActiveRoute 'posts'}}" title='posts')
             // i.large.blog.icon
             small #{post_counter}
@@ -161,11 +156,6 @@ template(name='nav')
             small #{rental_counter}
             +i name='clock'
             span.mobile.hidden rentals
-        a.icon.item.fly_right(href="/recipes" class="{{isActiveRoute 'rentals'}}" title='rentals')
-            // i.large.exchange.icon
-            small #{rental_counter}
-            +i name='food'
-            span.mobile.hidden recipes
         a.icon.item.fly_right(href="/products" class="{{isActiveRoute 'products'}}" title='products')
             // i.large.users.icon
             small #{product_counter}
@@ -201,6 +191,16 @@ template(name='mlayout')
         +yield
 
 
+template(name='home')
+    .ui.center.aligned.four.column.padded.grid 
+        .column 
+            each home_docs
+                a.ui.card(href="/#{route}")
+                    img.ui.image.zoomer(src="{{c.url image_id width=300 height=300 crop='fit'}}")    
+                    .content
+                        .header #{title}
+                        .description 
+                            |!{body}
 template(name='not_found')
     .ui.center.aligned.padded.basic.segment
         +ibig name='park-bench' 
@@ -230,13 +230,13 @@ template(name='footer')
     .ui.padded.inverted.grid.segment
         .one.column.row
             .column
-                if current_user.admin_mode
+                if currentUser.admin_mode
                     +print_this
                 with currentUser
                     +print_this
                     if in_dev
                         +boolean_edit key='admin_mode' label='admin mode'  
-                if current_user.admin_mode
+                if currentUser.admin_mode
                     .ui.inverted.inline.header 
                         i.user.icon
                         |#{user_docs.count} users 

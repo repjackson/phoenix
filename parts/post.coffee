@@ -193,6 +193,10 @@ if Meteor.isClient
             )
             
 if Meteor.isServer
+    Meteor.publish 'home_docs', ()->
+        Docs.find 
+            model:'post'
+            home:true
     Meteor.publish 'post_results', (
         picked_tags=[]
         sort_key='_timestamp'

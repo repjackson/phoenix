@@ -219,6 +219,7 @@ template(name='post_edit')
                     .ui.header
                         |audience
                     +boolean_edit key='private' label='private' 
+                    +boolean_edit key='home' label='home' 
                     +youtube_edit key='youtube_id' label='youtube' 
                     if private 
                         +multi_user_edit key='access_user_ids' label='user picker'  

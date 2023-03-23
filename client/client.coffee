@@ -4,6 +4,14 @@
 @picked_timestamp_tags = new ReactiveArray []
 # @picked_ingredients = new ReactiveArray []
 
+Template.home.onCreated ->
+    Meteor.subscribe 'home_docs', ->
+
+Template.home.helpers 
+    home_docs: ->
+        Docs.find 
+            model:'post'
+            home:true
 
 Template.layout.events 
     'click .clear_search': -> 

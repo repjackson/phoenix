@@ -306,6 +306,6 @@ Router.route '*', -> @render 'not_found'
 
 # Router.route '/login', -> @render 'login'
 
-# Router.route '/', -> @render 'events'
-Router.route '/', -> @redirect "/events"
+Router.route '/', -> @render 'home'
+# Router.route '/', -> @redirect "/"
 # Router.route '/', -> @redirect "/user/#{Meteor.user().username}"

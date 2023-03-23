@@ -122,7 +122,7 @@ a:hover, .button:hover{
 }
 
 .button:not(.circular) {
-  border-radius: 10px !important;
+  /*border-radius: 10px !important;*/
 }
 
 .inline {
